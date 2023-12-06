@@ -1,3 +1,7 @@
+//A faire 
+//Ajouter mouvement avec souris 
+//Ajouter force d'aire avec boutton du clavier 
+//Ajuster taille fenetre 
  /* 
  Référence :  
  https://natureofcode.com/book/chapter-5-physics-libraries/#chapter05_section16 
