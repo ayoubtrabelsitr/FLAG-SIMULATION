@@ -1,5 +1,5 @@
 //A faire 
-//Ajouter mouvement avec souris 
+//Ajouter mouvement avec souris      +++++++++++++++++++++++++++ FAAAAIT 
 //Ajouter force d'aire avec boutton du clavier 
 //Ajuster taille fenetre 
  /* 
@@ -10,18 +10,19 @@
 */
 PImage flag;
 Grid grid=new Grid() ;
-
+import peasy.*;
 void setup() {
   size(800, 800, P3D);  
   smooth();  
   flag = loadImage("x.jpg");
-   grid.init() ;
-   grid.create() ;  
+  grid.init();
+  grid.create();  
+  PeasyCam cam = new PeasyCam(this, 500); // Créer une nouvelle instance de PeasyCam
+  cam.setMinimumDistance(20); // Définir la distance minimale de la caméra par rapport à l'origine
+  cam.setMaximumDistance(1000); // Définir la distance maximale de la caméra par rapport à l'origine
 }
 
 void draw( ) {
-  translate(width/4, height/2, 0);
-  rotate(PI/2) ;
   background(0);
   grid.physics.update();
   grid.create_noise() ;
