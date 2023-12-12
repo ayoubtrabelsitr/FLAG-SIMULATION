@@ -100,4 +100,24 @@ class Grid
     }
     zoff += 0.1; 
     } 
+   
+  void applyWindForce() {
+  float zoff = 0, xoff = 0;
+  for (int i = 0; i < numParticlesY; i++) {
+    float yoff = 0;
+    for (int j = 0; j < numParticlesX; j++) {
+      float windx = map(noise(xoff, yoff, zoff), 0, 1, 0, 3);
+      float windz = map(noise(xoff + 500, yoff + 500, zoff), 0, 1, -2, 2);
+      Vec3D windForce = new Vec3D(windx, 0, windz);
+      
+      // Appliquer la force d'air uniquement si la touche 'F' est enfoncée
+      if (keyFPressed) {
+        Blanket[i][j].addForce(windForce);
+      }
+      yoff += 0.1;
+    }
+    xoff += 0.1;
+  }
+  zoff += 0.1;
+}
 }

@@ -1,18 +1,15 @@
-//A faire 
-//Ajouter mouvement avec souris      +++++++++++++++++++++++++++ FAAAAIT 
-//Ajouter force d'aire avec boutton du clavier 
-//Ajuster taille fenetre 
- /* 
- Référence :  
- https://natureofcode.com/book/chapter-5-physics-libraries/#chapter05_section16 
- https://www.youtube.com/watch?v=JunJzIe0hEo  
- https://www.youtube.com/watch?v=hSU19ICZVk4&list=PLRqwX-V7Uu6aiaU4s30tXvUmwGMlb9UUS&index=4
-*/
+//Référence :  
+// https://natureofcode.com/book/chapter-5-physics-libraries/#chapter05_section16 
+ //https://www.youtube.com/watch?v=JunJzIe0hEo  
+ //https://www.youtube.com/watch?v=hSU19ICZVk4&list=PLRqwX-V7Uu6aiaU4s30tXvUmwGMlb9UUS&index=4
+//*/
 PImage flag;
 Grid grid=new Grid() ;
 import peasy.*;
+ boolean keyFPressed = false;
 void setup() {
-  size(800, 800, P3D);  
+  //size(800, 800, P3D);  
+  fullScreen(P3D);
   smooth();  
   flag = loadImage("x.jpg");
   grid.init();
@@ -26,6 +23,7 @@ void draw( ) {
   background(0);
   grid.physics.update();
   grid.create_noise() ;
+  grid.applyWindForce();
   noFill();
   strokeWeight(1);
   noStroke();
@@ -43,5 +41,15 @@ void draw( ) {
         vertex (grid.Blanket[i][j+1].x, grid.Blanket[i][j+1].y , grid.Blanket[i][j+1].z, u, v);
     }
     endShape(CLOSE);
+  }
+}
+void keyPressed() {
+  if (key == 'f' || key == 'F') {
+    keyFPressed = true;
+  }
+}
+void keyReleased() {
+  if (key == 'f' || key == 'F') {
+    keyFPressed = false;
   }
 }
