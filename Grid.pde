@@ -34,7 +34,7 @@ class Grid
    
      void create() 
      {  
-       float x = -numParticlesY * len -100;     // Spacing them out along the x-axis
+       float x = -numParticlesY * len -100;     
       for (int i = 0; i < numParticlesY; i++)
     
     {
@@ -44,7 +44,7 @@ class Grid
         
         Particle p1 = new Particle(x, y, 0);     
         Blanket[i][j] = p1;
-        physics.addParticle(p1);  // Add the particle to the physics world
+        physics.addParticle(p1);  
         y += len;
       }
       x+=len;
@@ -77,14 +77,13 @@ class Grid
       }  
     }
     
-  // A particle can also be locked so that only one end of the spring can move
     Blanket[0][0].lock();   
     Blanket[0][(int)numParticlesX/3].lock();
     Blanket[0][(int)numParticlesX/2].lock();
     Blanket[0][(int)numParticlesX*3/4].lock();
     Blanket[0][(int)numParticlesX-1].lock();       
     }
-    void create_noise()  //Nous avons ajouté du bruit pour rendre le rendu plus réaliste .
+    void create_noise()  
     {    
     float zoff =0,xoff= 0; 
     for (int i = 0; i < grid.numParticlesY; i++) {        
@@ -110,7 +109,7 @@ class Grid
       float windz = map(noise(xoff + 500, yoff + 500, zoff), 0, 1, -2, 2);
       Vec3D windForce = new Vec3D(windx, 0, windz);
       
-      // Appliquer la force d'air uniquement si la touche 'F' est enfoncée
+      // Appliquer la force d'air  si la touche 'F' est enfoncée
       if (keyFPressed) {
         Blanket[i][j].addForce(windForce);
       }

@@ -14,9 +14,9 @@ void setup() {
   flag = loadImage("x.jpg");
   grid.init();
   grid.create();  
-  PeasyCam cam = new PeasyCam(this, 500); // Créer une nouvelle instance de PeasyCam
-  cam.setMinimumDistance(20); // Définir la distance minimale de la caméra par rapport à l'origine
-  cam.setMaximumDistance(1000); // Définir la distance maximale de la caméra par rapport à l'origine
+  PeasyCam cam = new PeasyCam(this, 500); 
+  cam.setMinimumDistance(20); 
+  cam.setMaximumDistance(1000);
 }
 
 void draw( ) {
