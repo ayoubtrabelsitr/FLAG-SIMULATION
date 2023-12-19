@@ -4,15 +4,12 @@ import toxi.physics3d.constraints.*;
 import toxi.geom.*;
 class Grid 
 {
-  float len ;
-  int numParticlesY  ; 
-  int numParticlesX ;  
-  Particle[][] Blanket ;
   ArrayList<Ressort> ressort;
   VerletPhysics3D physics;  
-  Vec3D gravity  ; 
-  
-    
+  Vec3D gravity; 
+  float len ;
+  int numParticlesX, numParticlesY; 
+  Particle[][] Blanket ;
     public Grid() 
     {  
       this.len=5 ;
@@ -20,9 +17,7 @@ class Grid
       this.numParticlesY=50;  
       this.numParticlesX=40;
       this.Blanket= new Particle[numParticlesY][numParticlesX];
-    
     }
-    
     void init() 
     {
     physics = new VerletPhysics3D();
@@ -60,16 +55,11 @@ class Grid
           ressort.add(new Ressort(a1, b1, len, 1));
           physics.addSpring(new Ressort(a1, b1, len, 1));
         }
-  
-  
         if (j != numParticlesX -1) 
         {
-          
-      
           Particle b2 = Blanket[i][j+1];
           ressort.add(new Ressort(a1, b2, len, 1) );
-          physics.addSpring(new Ressort(a1, b2, len, 1) );
-          
+          physics.addSpring(new Ressort(a1, b2, len, 1) );    
         }
          
       }  
@@ -97,7 +87,6 @@ class Grid
     }
     zoff += 0.1; 
     } 
-   
   void applyWindForce() {
   float zoff = 0, xoff = 0;
   for (int i = 0; i < numParticlesY; i++) {
@@ -106,15 +95,14 @@ class Grid
       float windx = map(noise(xoff, yoff, zoff), 0, 1, 0, 3);
       float windz = map(noise(xoff + 500, yoff + 500, zoff), 0, 1, -2, 2);
       Vec3D windForce = new Vec3D(windx, 0, windz);
-      
       // Appliquer la force d'air  si la touche 'F' est enfoncée
       if (keyFPressed) {
         Blanket[i][j].addForce(windForce);
       }
-      yoff += 0.1;
+      yoff += 0.2;
     }
-    xoff += 0.1;
+    xoff += 0.2;
   }
-  zoff += 0.1;
+  zoff += 0.2;
 }
 }

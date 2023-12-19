@@ -10,14 +10,13 @@ boolean keyFPressed = false;
 void setup() {
   fullScreen(P3D);
   smooth();  
-  drap = loadImage("x.jpg");
+  drap = loadImage("FLAG.jpg");
   grid.init();
   grid.create();  
   PeasyCam cam = new PeasyCam(this, 500); 
   cam.setMinimumDistance(20); 
   cam.setMaximumDistance(1000);
 }
-
 void draw( ) {
   background(0);
   grid.physics.update();
