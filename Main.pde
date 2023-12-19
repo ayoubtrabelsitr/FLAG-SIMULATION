@@ -3,15 +3,14 @@
  //https://www.youtube.com/watch?v=JunJzIe0hEo  
  //https://www.youtube.com/watch?v=hSU19ICZVk4&list=PLRqwX-V7Uu6aiaU4s30tXvUmwGMlb9UUS&index=4
 //*/
-PImage flag;
+PImage drap;
 Grid grid=new Grid() ;
 import peasy.*;
- boolean keyFPressed = false;
+boolean keyFPressed = false; 
 void setup() {
-  //size(800, 800, P3D);  
   fullScreen(P3D);
   smooth();  
-  flag = loadImage("x.jpg");
+  drap = loadImage("x.jpg");
   grid.init();
   grid.create();  
   PeasyCam cam = new PeasyCam(this, 500); 
@@ -31,7 +30,7 @@ void draw( ) {
  for (int j = 0; j < grid.numParticlesX-1; j++) 
  {
     beginShape(TRIANGLE_STRIP);
-    texture(flag);
+    texture(drap);
     for (int i = 0; i < grid.numParticlesY; i++) 
     {
         float u = map(i, 0, grid.numParticlesY-1, 0, 1);

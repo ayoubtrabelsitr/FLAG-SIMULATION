@@ -1,15 +1,16 @@
-class Particle extends VerletParticle3D 
-{
-  public Particle(float x, float y, float z)
-  {
+// La classe Particle extend de la classe VerletParticle3D
+class Particle extends VerletParticle3D {
+  
+  public Particle(float x, float y, float z) {
     super(x, y, z);
   }
-  void display(){
+  //afficher la particule
+  void display() {
     pushMatrix();
-    fill(0);
+    fill(255, 0, 0); 
     noStroke();
     translate(x, y, z);
-    ellipse(0, 0, 2, 2);
+    ellipse(0, 0, 5, 5); 
     popMatrix();
   }
 }

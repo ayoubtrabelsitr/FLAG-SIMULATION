@@ -21,7 +21,6 @@ class Grid
       this.numParticlesX=40;
       this.Blanket= new Particle[numParticlesY][numParticlesX];
     
-   
     }
     
     void init() 
@@ -31,7 +30,6 @@ class Grid
     physics.addBehavior(new GravityBehavior3D(gravity ));
    
     }
-   
      void create() 
      {  
        float x = -numParticlesY * len -100;     
