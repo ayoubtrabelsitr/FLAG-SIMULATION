@@ -9,10 +9,4 @@ class Ressort extends VerletSpring3D
     this.particleA = particleA;
     this.particleB = particleB;
   }
-   void display()
-  {
-    stroke(255);
-    // Dessiner une ligne reliant les positions des particules a et b du ressort
-    line(particleA.x, particleA.y, particleA.z, particleB.x, particleB.y, particleB.z); 
-  }   
 }

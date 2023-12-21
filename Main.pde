@@ -20,26 +20,28 @@ void setup() {
 void draw( ) {
   background(0);
   grid.physics.update();
-  grid.create_noise() ;
+  grid.create_noise(0.0,0.0,0.0);
   grid.applyWindForce();
   noFill();
   strokeWeight(1);
   noStroke();
   textureMode(NORMAL);
- for (int j = 0; j < grid.numParticlesX-1; j++) 
- {
+ for (int j = 0; j < grid.nParX - 1; j++) {
     beginShape(TRIANGLE_STRIP);
     texture(drap);
-    for (int i = 0; i < grid.numParticlesY; i++) 
-    {
-        float u = map(i, 0, grid.numParticlesY-1, 0, 1);
-        float v = map(j, 0, grid.numParticlesX-1, 0, 1);
-        vertex(grid.Blanket[i][j].x, grid.Blanket[i][j].y,  grid.Blanket[i][j].z, u, v);
-        v = map(j+1, 0, grid.numParticlesX, 0, 1);
-        vertex (grid.Blanket[i][j+1].x, grid.Blanket[i][j+1].y , grid.Blanket[i][j+1].z, u, v);
+    for (int i = 0; i < grid.nParY; i++) {
+        float u = map(i, 0, grid.nParY - 1, 0, 1);
+        float v = map(j, 0, grid.nParX - 1, 0, 1);
+        int nextJ = j + 1; // Stocker la prochaine valeur de j+1
+        if (nextJ >= grid.nParX) {
+            nextJ = grid.nParX - 1;
+        }
+        v = map(nextJ, 0, grid.nParX - 1, 0, 1);
+        vertex(grid.Blanket[i][j].x, grid.Blanket[i][j].y, grid.Blanket[i][j].z, u, v);
+        vertex(grid.Blanket[i][nextJ].x, grid.Blanket[i][nextJ].y, grid.Blanket[i][nextJ].z, u, v);
     }
     endShape(CLOSE);
-  }
+}
 }
 void keyPressed() {
   if (key == 'f' || key == 'F') {
