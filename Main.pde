@@ -1,8 +1,3 @@
-//Référence :  
-// https://natureofcode.com/book/chapter-5-physics-libraries/#chapter05_section16 
- //https://www.youtube.com/watch?v=JunJzIe0hEo  
- //https://www.youtube.com/watch?v=hSU19ICZVk4&list=PLRqwX-V7Uu6aiaU4s30tXvUmwGMlb9UUS&index=4
-//*/
 PImage drap;
 Grid grid=new Grid() ;
 import peasy.*;
