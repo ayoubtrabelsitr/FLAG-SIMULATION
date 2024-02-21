@@ -40,7 +40,6 @@ Voici une explication détaillée des principales parties de notre code :
 - Simulation de forces et de vent
 - Rendu graphique
 - Interaction utilisateur
-- Utilisation des bibliothèques
 
 ## 5. Conclusion
 Ce projet de simulation d’animation d’un drapeau, effectué en binôme, a été une expérience enrichissante. Nous avons réussi à créer une représentation réaliste d’un drapeau animé par le vent. Nous avons appris à modéliser un maillage déformable utilisant des particules et des ressorts, ainsi qu’à appliquer des forces de vent simulées pour générer un mouvement réaliste du drapeau. Même si des défis ont été rencontrés, cette expérience nous a permis de renforcer nos compétences en programmation et en simulation physique.
